@@ -1,0 +1,132 @@
+<html><script type="text/javascript" class="__REQUESTLY__SCRIPT">(function(namespace) {
+  window[namespace] = window[namespace] || {};
+  window[namespace].responseRules = {};
+
+  let open = XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open = function(method) {
+    this.addEventListener('readystatechange', function() {
+      if (this.readyState === 4 && window[namespace].responseRules.hasOwnProperty(this.responseURL)) {
+        const responseRule = window[namespace].responseRules[this.responseURL];
+        const {response, id} = responseRule;
+        const responseType = this.responseType;
+        let customResponse;
+
+        customResponse = response.type === 'code' ? responseRule.evaluator({
+            method,
+            url: this.responseURL,
+            requestHeaders: this.requestHeaders,
+            requestData: this.requestData,
+            responseType: this.responseType,
+            response: this.response
+          }) : response.value;
+
+        Object.defineProperty(this, 'response', {
+          get: function () {
+            if (response.type === 'static' && responseType === 'json') {
+              return JSON.parse(customResponse);
+            }
+            return customResponse;
+          }
+        });
+
+        if (responseType === '' || responseType === 'text') {
+          Object.defineProperty(this, 'responseText', {
+            get: function () {
+              return customResponse;
+            }
+          });
+        }
+
+        window.postMessage({
+          from: 'requestly',
+          type: 'response_rule_applied',
+          id
+        }, window.location.href);
+      }
+    }, false);
+    open.apply(this, arguments);
+  };
+
+  let send = XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.send = function(data) {
+    this.requestData = data;
+    send.apply(this, arguments);
+  };
+
+  let setRequestHeader = XMLHttpRequest.prototype.setRequestHeader;
+  XMLHttpRequest.prototype.setRequestHeader = function(header, value) {
+    this.requestHeaders = this.requestHeaders || {};
+    this.requestHeaders[header] = value;
+    setRequestHeader.apply(this, arguments);
+  }
+})('__REQUESTLY__')</script><head><script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app58.us.archive.org';v.server_ms=1303;archive_analytics.send_pageview({});});</script><script type="text/javascript" src="/_static/js/playback.bundle.js?v=SOX25l-I" charset="utf-8"></script>
+<script type="text/javascript" src="/_static/js/wombat.js?v=cRqOKCOw" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("http://web.archive.org/web");
+  __wm.wombat("https://wrapperonlineassets.ga/","20200722193527","http://web.archive.org/","web","/_static/",
+	      "1595446527");
+</script>
+<link rel="stylesheet" type="text/css" href="/_static/css/banner-styles.css?v=bsmaklHF">
+<link rel="stylesheet" type="text/css" href="/_static/css/iconochive.css?v=qtvMKcIJ">
+<!-- End Wayback Rewrite JS Include -->
+
+	<meta charset="UTF-8">
+	<link rel="icon" href="https://goanimate4schools.herokuapp.com/favicon.ico" type="image/png">
+	<title>Wrapper Online</title>
+	<meta name="description" content="Wrapper Online is a GoAnimate Private Server remake revived by the community!">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Wrapper Online">
+	<meta property="og:description" content="goanimate4schools offline is a GoAnimate Private Server revived by plotagonist and goanimator 1024 (my friend)">
+	<meta property="og:url" content="http://web.archive.org/web/20200722193527/https://wrapperonlineassets.ga/">
+	<meta property="og:image" content="http://web.archive.org/web/20200722193527im_/https://wrapperonlineassets.ga/favicon.ico/">
+	<link rel="stylesheet" type="text/css" href="https://web.archive.org/web/20200722193527cs_/https://wrapperonlineassets.ga/css/modern-normalize.css">
+	<link rel="stylesheet" type="text/css" href="https://web.archive.org/web/20200722193527cs_/https://wrapperonlineassets.ga/css/global.css">
+</head>
+<body>
+<header>
+	<div>
+		<h1 style="margin:0"><img id="logo" src="http://web.archive.org/web/20170102134748im_/https://d2qrjeyl4jwu9j.cloudfront.net/static/766ffff01a7a3e3a/school/img/site/logo4s.png" alt="Wrapper: Online"></h1>
+	</div>
+</header>
+
+<main>
+
+<h2 id="welcome-to-the-home-of-the-asset-servers-for-goanimate4schools-offline">Welcome to the home of the asset servers for goanimate4schools: Offline.</h2>
+
+<p>It’s most likely <a style="color:#777; cursor:pointer" id="cleverlydone" onclick="misterfreeman.play()" but="">you’re not supposed to be here</a>.<br>
+You probably got here through the magic known as the Network tabr.<br>
+If you meant to come here, feel free to look around and do stuff. Maybe you’ll find a secret…</p>
+
+<p><a href="https://josephcrosmanplays532.github.io/goanimate4schools-offline-assets/404.html">404.html</a></p>
+<p><a href="https://josephcrosmanplays532.github.io/goanimate4schools-offline-assets/caillou.html">CAYILOU HOW DARE YOU!
+
+
+
+
+</main>
+
+
+<!--
+     FILE ARCHIVED ON 19:35:27 Jul 22, 2020 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 04:09:29 Jan 24, 2021.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  xauthn.chkprivs: 60.384
+  RedisCDXSource: 2.305
+  esindex: 0.016
+  xauthn.identify: 144.133
+  captures_list: 992.677
+  CDXLines.iter: 27.271 (3)
+  exclusion.robots: 205.087
+  load_resource: 305.073
+  LoadShardBlock: 753.45 (3)
+  exclusion.robots.policy: 205.073
+  PetaboxLoader3.datanode: 623.002 (4)
+  PetaboxLoader3.resolve: 289.497 (3)
+--></body></html>
